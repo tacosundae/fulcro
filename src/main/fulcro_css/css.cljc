@@ -163,7 +163,7 @@
   (sp/transform (sp/walker (some-fn prefixed-keyword? selector? #?(:cljs record?)))
     #(cond (prefixed-keyword? %) (localize-kw % component)
            (selector? %)         (localize-selector % component)
-           #?@(:cljs (record? %) %))
+           #?@(:cljs [(record? %) %]))
     (get-local-rules component)))
 
 (defn- get-css-rules
