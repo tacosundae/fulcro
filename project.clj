@@ -1,11 +1,11 @@
-(defproject fulcrologic/fulcro "2.4.1-SNAPSHOT"
+(defproject io.lmi/fulcro "2.4.1-SNAPSHOT"
   :description "A library for building full-stack SPA webapps in Clojure and Clojurescript"
   :url ""
   :license {:name "MIT"
             :url  "https://opensource.org/licenses/MIT"}
   :dependencies [[org.clojure/clojure "1.8.0" :scope "provided"]
                  [org.clojure/clojurescript "1.9.946" :scope "provided"]
-
+                 [org.clojure/tools.reader "1.2.1"]
                  [cljsjs/react "15.6.2-4"]
                  [cljsjs/react-dom "15.6.2-4"]
                  [cljsjs/react-dom-server "15.6.2-4"]

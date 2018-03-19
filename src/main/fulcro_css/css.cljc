@@ -160,9 +160,10 @@
 (defn localize-css
   "Converts prefixed keywords into localized keywords and localizes the values of garden selectors"
   [component]
-  (sp/transform (sp/walker #(or (prefixed-keyword? %)
-                              (selector? %)))
-    #(if (prefixed-keyword? %) (localize-kw % component) (localize-selector % component))
+  (sp/transform (sp/walker (some-fn prefixed-keyword? selector? #?(:cljs record?)))
+    #(cond (prefixed-keyword? %) (localize-kw % component)
+           (selector? %)         (localize-selector % component)
+           #?@(:cljs (record? %) %))
     (get-local-rules component)))
 
 (defn- get-css-rules
